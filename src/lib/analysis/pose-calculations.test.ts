@@ -1,0 +1,2 @@
+import {describe,expect,it} from "vitest"; import {calculateJointAngle,calculateTorsoInclination} from "./pose-calculations";
+describe("pose calculations",()=>{it("angle droit",()=>expect(calculateJointAngle({x:1,y:0},{x:0,y:0},{x:0,y:1})).toBe(90));it("vecteur nul",()=>expect(calculateJointAngle({x:0,y:0},{x:0,y:0},{x:1,y:1})).toBeUndefined());it("tronc vertical",()=>{const p=Array.from({length:33},()=>({x:0,y:0}));p[11]={x:.4,y:.2};p[12]={x:.6,y:.2};p[23]={x:.4,y:.8};p[24]={x:.6,y:.8};expect(calculateTorsoInclination(p)).toBe(0)});});

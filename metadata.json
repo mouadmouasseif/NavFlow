@@ -1,0 +1,6 @@
+{
+  "name": "NavFlow AI",
+  "description": "Premium multi-platform AI application for sailing performance analysis, athlete movement tracking, and elite tactical coaching.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

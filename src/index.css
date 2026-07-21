@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-navy-950: #030712;
+  --color-navy-900: #0B132B;
+  --color-navy-800: #1C2541;
+  --color-navy-700: #3A506B;
+  --color-neon-green: #00FF87;
+  --color-neon-cyan: #00F0FF;
+  --color-neon-blue: #3B82F6;
+}
+
+/* Custom glowing effects, glassmorphic styles, and layout elements */
+@layer utilities {
+  .neon-glow-green {
+    box-shadow: 0 0 15px rgba(0, 255, 135, 0.25);
+  }
+  .neon-glow-cyan {
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
+  }
+  .glass-panel {
+    background: rgba(11, 19, 43, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .glass-panel-light {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+  }
+  .neon-border-green {
+    border-color: rgba(0, 255, 135, 0.5);
+    box-shadow: 0 0 10px rgba(0, 255, 135, 0.15);
+  }
+  .neon-text-green {
+    color: #00FF87;
+    text-shadow: 0 0 8px rgba(0, 255, 135, 0.5);
+  }
+}
+
+body {
+  background-color: #030712;
+  color: #F3F4F6;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar for sports telemetry charts and logs */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(11, 19, 43, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 135, 0.2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 135, 0.5);
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+}
+
+.pulsing-ring {
+  animation: pulse-ring 2s infinite ease-in-out;
+}
