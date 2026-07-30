@@ -27,7 +27,7 @@ export default function AnalyticsDashboard({ session, comparisonSession }: Analy
 
   // Format and download dynamic print ready HTML-to-PDF report
   const handleDownloadPDF = () => {
-    const reportTitle = `NavFlow AI Performance Summary - ${session.athleteName}`;
+    const reportTitle = `SailMotion AI Performance Summary - ${session.athleteName}`;
     const dateFormatted = new Date(session.date).toLocaleDateString(undefined, {
       year: 'numeric',
       month: 'long',
@@ -249,7 +249,7 @@ export default function AnalyticsDashboard({ session, comparisonSession }: Analy
     <div class="logo-area">
       <div class="logo-container">⛵</div>
       <div>
-        <h1 class="title-h1">NAVFLOW AI PORT REPORT</h1>
+        <h1 class="title-h1">SAILMOTION AI PORT REPORT</h1>
         <span class="sub-brand">Yacht Performance Diagnostics</span>
       </div>
     </div>
@@ -325,7 +325,7 @@ export default function AnalyticsDashboard({ session, comparisonSession }: Analy
     </tbody>
   </table>
 
-  <div class="section-title">NavFlow 3D Simulation Analysis & Kinematics</div>
+  <div class="section-title">SailMotion AI 3D Simulation Analysis & Kinematics</div>
   <div class="meta-grid">
     <div class="meta-card">
       <div class="meta-label">Optimal Heel Window</div>
@@ -348,13 +348,13 @@ export default function AnalyticsDashboard({ session, comparisonSession }: Analy
     <strong>3D Kinematic Summary:</strong> The skeletal tracking models show a high-frequency synchronization between the mast leverage vector and the hiking extension. Keeping the boat heeled exactly flat (within 5 degrees) allows optimal water flow over the foils and foils slots, minimizing resistance and resulting in up to <strong>+1.4 kts VMG increase</strong> compared to standard baseline.
   </div>
 
-  <div class="section-title">NavFlow AI Tactical Advisory Insight Report</div>
+  <div class="section-title">SailMotion AI Tactical Advisory Insight Report</div>
   <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 18px; font-size: 12px; font-family: sans-serif;">
     ${formattedReportHTML}
   </div>
 
   <div class="footer">
-    Navflow AI Sport Analytics. Morocco Engineering. Designed by Mouad Mouasseif.<br>
+    SailMotion AI Sport Analytics. Morocco Engineering. Designed by Mouad Mouasseif.<br>
     © 2026. All rights resolved.
   </div>
 
@@ -373,7 +373,7 @@ export default function AnalyticsDashboard({ session, comparisonSession }: Analy
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `NavFlow_${session.athleteName.replace(/\s+/g, '_')}_Session_Report.html`;
+    a.download = `SailMotion_${session.athleteName.replace(/\s+/g, '_')}_Session_Report.html`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);

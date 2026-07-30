@@ -265,7 +265,7 @@ export default function VideoAnalysisPanel({
     ctx.font = '8px monospace';
     ctx.fillText("CALIBRATION: PASSED", W - 114, 32);
     ctx.fillStyle = '#00F0FF';
-    ctx.fillText("ENG: NAVFLOW-CV", W - 114, 42);
+    ctx.fillText("ENG: SAILMOTION-CV", W - 114, 42);
 
   }, [currentTimePct, selectedVideo, showWindOverlay, session]);
 
@@ -358,7 +358,7 @@ export default function VideoAnalysisPanel({
               Active Computer Vision Link
             </span>
             <h3 className="font-display font-medium text-lg text-white">
-              Navflow Dynamic Video Overlay
+              SailMotion Dynamic Video Overlay
             </h3>
           </div>
         </div>
@@ -400,7 +400,7 @@ export default function VideoAnalysisPanel({
           <div className="absolute inset-0 z-20 bg-navy-950/90 flex flex-col items-center justify-center text-center p-6 text-white">
             <div className="w-12 h-12 rounded-full border-2 border-neon-green border-t-transparent animate-spin mb-4" />
             <Sparkles className="w-8 h-8 text-neon-green animate-bounce mb-2" />
-            <h4 className="font-display font-bold text-lg text-neon-green">NavFlow Neural Sailing Analyzer</h4>
+            <h4 className="font-display font-bold text-lg text-neon-green">SailMotion AI Neural Sailing Analyzer</h4>
             <p className="text-xs text-slate-400 mt-1 max-w-xs leading-relaxed">
               Synthesizing apparent wind Shifts and joint coordinates on: <span className="font-mono text-white block">{processedFileName}</span>
             </p>
@@ -445,7 +445,7 @@ export default function VideoAnalysisPanel({
       {/* 3. Drag and Drop triggers footer */}
       <div className="bg-navy-950/40 p-4 border-b border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-xs text-slate-400">
-          Or upload custom video manually to test NavFlow Intelligence parsing layers:
+          Or upload custom video manually to test SailMotion Intelligence parsing layers:
         </p>
         <div>
           <button 

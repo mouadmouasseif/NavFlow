@@ -51,7 +51,7 @@ export default function WelcomePage({ onEnterApp }: WelcomePageProps) {
           </div>
           <div>
             <h1 className="font-display font-bold text-base leading-none text-white tracking-wider">
-              NAVFLOW <span className="text-neon-cyan">AI</span>
+              SAILMOTION <span className="text-neon-cyan">AI</span>
             </h1>
             <p className="text-[9px] font-mono text-slate-400 mt-0.5 uppercase tracking-widest">Performance System</p>
           </div>
@@ -91,7 +91,7 @@ export default function WelcomePage({ onEnterApp }: WelcomePageProps) {
               L'analyse qui fait <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-green via-neon-cyan to-blue-500">la différence</span> sur l'eau.
             </h2>
             <p className="text-slate-400 leading-relaxed text-sm sm:text-base">
-              Navflow est l'application ultime pour analyser, comprendre et améliorer vos performances en voile olympique et haut niveau. En temps réel ou via votre vidéo de tack, pour toutes les classes de voiliers.
+              SailMotion est l'application ultime pour analyser, comprendre et améliorer vos performances en voile olympique et haut niveau. En temps réel ou via votre vidéo de tack, pour toutes les classes de voiliers.
             </p>
           </div>
 
@@ -230,7 +230,7 @@ export default function WelcomePage({ onEnterApp }: WelcomePageProps) {
 
               <div className="hidden">
                 <h3 className="font-display font-black text-3.5xl tracking-widest text-white leading-none">
-                  NAVFLOW
+                  SAILMOTION
                 </h3>
                 <p className="text-[10px] font-mono tracking-[0.25em] text-neon-cyan uppercase mt-1">
                   Analyse de Performance & Compétition

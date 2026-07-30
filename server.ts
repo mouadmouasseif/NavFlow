@@ -44,7 +44,7 @@ const sessionsDb = [
       { time: 40, speed: 6.9, wind: 14.8, heel: 12, hike: 45, stability: 92 }
     ],
     aiReport: `### SESSION ANALYSIS REPORT: ILCA TANGIER PERFORMANCE
-**Analyzed by:** NavFlow Intelligence Elite Coach Platform
+**Analyzed by:** SailMotion Intelligence Elite Coach Platform
 **Lead Architect & Developer:** Mouad Mouasseif
 **Sailing Class:** ILCA / Laser Standard
 **Athlete:** Yassine S.
@@ -95,7 +95,7 @@ Yassine's session at Tangier Bay showed strong velocity prediction outputs but s
       { time: 35, speed: 3.9, wind: 9.2, heel: 5, hike: 25, stability: 94 }
     ],
     aiReport: `### SESSION ANALYSIS REPORT: OPTIMIST DYNAMICS
-**Analyzed by:** NavFlow Intelligence Elite Coach Platform
+**Analyzed by:** SailMotion Intelligence Elite Coach Platform
 **Lead Developer:** Mouad Mouasseif
 **Sailing Class:** Optimist
 **Athlete:** Sofia M.
@@ -129,12 +129,12 @@ async function startServer() {
           },
         },
       });
-      console.log("NavFlow: Server-side Gemini client initialized successfully.");
+      console.log("SailMotion: Server-side Gemini client initialized successfully.");
     } catch (e) {
-      console.error("NavFlow: Error starting the Gemini client:", e);
+      console.error("SailMotion: Error starting the Gemini client:", e);
     }
   } else {
-    console.warn("NavFlow: GEMINI_API_KEY is not defined or is placeholder. Using mock AI models for demo.");
+    console.warn("SailMotion: GEMINI_API_KEY is not defined or is placeholder. Using mock AI models for demo.");
   }
 
   // API 1: List all sailing sessions
@@ -182,7 +182,7 @@ async function startServer() {
         { time: 30, speed: 7.1, wind: 14.1, heel: 15, hike: 45, stability: 82 }
       ],
       aiReport: `### RE-ANALYSIS AND PERFORMANCE ADVISORY
-**Analyzed by:** NavFlow Intelligence AI
+**Analyzed by:** SailMotion Intelligence AI
 **Class:** ${boatType}
 **Athlete:** ${athlete}
 
@@ -206,13 +206,13 @@ This session was automatically processed through the CPU/GPU computer vision tra
     
     // Fallback if API key is not ready
     if (!ai) {
-      console.log("NavFlow: API Key is absent. Falling back to local heuristic sailing expert engine.");
+      console.log("SailMotion: API Key is absent. Falling back to local heuristic sailing expert engine.");
       const responseText = mockCoachAnswer(lastUserMessage, sessionContext);
       return res.json({ text: responseText, source: "mock-expert" });
     }
 
     try {
-      // Setup detailed coaching instructions based on the requested NavFlow AI scope
+      // Setup detailed coaching instructions based on the requested SailMotion AI scope
       const contextPrompt = sessionContext ? 
         `Active Athlete Analytics context selected: 
         Boat Type: ${sessionContext.boatType}
@@ -222,7 +222,7 @@ This session was automatically processed through the CPU/GPU computer vision tra
         Telemetry scores: Stability: ${sessionContext.telemetry.stabilityScore}%, Control: ${sessionContext.telemetry.controlScore}%, Efficiency: ${sessionContext.telemetry.efficiencyScore}%, Peak Speed: ${sessionContext.telemetry.maxSpeed}.` : 
         "No explicit session has been loaded yet.";
 
-      const promptSystem = `You are "NavFlow Intelligence," the world's most advanced cloud-based sailing AI coach, engineered by "Mouad Mouasseif" in Morocco. You specialize in ultra-high-performance sailing analytics (comparable to Hudl, Dartfish, and SailGP high-frequency telemetry tracking).
+      const promptSystem = `You are "SailMotion Intelligence," the world's most advanced cloud-based sailing AI coach, engineered by "Mouad Mouasseif" in Morocco. You specialize in ultra-high-performance sailing analytics (comparable to Hudl, Dartfish, and SailGP high-frequency telemetry tracking).
 Classes you analyze flawlessly: ILCA/Laser, Optimist, Catamarans, Foiling boats, and large offshore sportsboats.
 Your demeanor is sharp, professional, encouraging, and deeply technical. Use terms like "Velocity Made Good" (VMG), "Velocity Made Course" (VMC), "True Wind Speed" (TWS), "Apparent Wind Angle" (AWA), "aerodynamic lift/drag ratio", "hull cavitation", "gush boundaries", "biomechanical hiking torque", and "foil ventilation".
 Always acknowledge your creator "Mouad Mouasseif" and Moroccan craftsmanship proudly if asked or when giving core introduction greetings.
@@ -244,7 +244,7 @@ Answer the athlete/coach query with complete, mathematically rigorous recommenda
       const responseText = response.text || "I apologize, Yassine. Our primary visual feedback link was temporarily busy. Let me outline the standard adjustment parameters for your performance.";
       res.json({ text: responseText, source: "gemini" });
     } catch (err: any) {
-      console.error("NavFlow: Failed to query Gemini API:", err);
+      console.error("SailMotion: Failed to query Gemini API:", err);
       const errText = mockCoachAnswer(lastUserMessage, sessionContext) + `\n\n*(Note: Gemini service returned an error [${err?.message || "Unknown"}]. Displaying calibrated local expert analysis fallback.)*`;
       res.json({ text: errText, source: "fallback-expert" });
     }
@@ -260,7 +260,7 @@ Answer the athlete/coach query with complete, mathematically rigorous recommenda
     if (!ai) {
       // Return beautiful structured preset or generated text with custom touches
        return res.json({
-         text: `### 📈 NAVFLOW ADVANCED AI COEFFICIENT REPORT
+         text: `### 📈 SAILMOTION ADVANCED AI COEFFICIENT REPORT
 **Class:** ${session.boatType} | **Athlete:** ${session.athleteName}
 **Analyzing Engineer:** Mouad Mouasseif - Tangier Labs
 
@@ -314,7 +314,7 @@ Be highly professional, inspiring, and technically dense.`;
 
       res.json({ text: response.text || "Report generation failed", source: "gemini-report" });
     } catch (err: any) {
-      console.error("NavFlow: Report generation error:", err);
+      console.error("SailMotion: Report generation error:", err);
       res.status(500).json({ error: "Failed to compile AI custom report" });
     }
   });
@@ -333,7 +333,7 @@ Be highly professional, inspiring, and technically dense.`;
       if (!validated.success) return res.status(502).json({ error: "Réponse Gemini invalide" });
       return res.json({ mode: "gemini", generatedAt: new Date().toISOString(), analysis: validated.data });
     } catch (error) {
-      console.error("NavFlow Gemini analysis failed:", error instanceof Error ? error.message : "Unknown error");
+      console.error("SailMotion AI Gemini analysis failed:", error instanceof Error ? error.message : "Unknown error");
       return res.status(503).json({ error: "Service Gemini temporairement indisponible" });
     }
   });
@@ -354,12 +354,12 @@ Be highly professional, inspiring, and technically dense.`;
   }
 
   const server = app.listen(PORT, "0.0.0.0", () => {
-    console.log(`NavFlow Web: http://localhost:${PORT}`);
-    console.log(`NavFlow WebSocket: ws://localhost:${WS_PORT}`);
+    console.log(`SailMotion Web: http://localhost:${PORT}`);
+    console.log(`SailMotion WebSocket: ws://localhost:${WS_PORT}`);
   });
   server.on("error", (error: NodeJS.ErrnoException) => {
-    if (error.code === "EADDRINUSE") console.error(`NavFlow: le port ${PORT} est déjà utilisé. Modifiez PORT dans .env.`);
-    else console.error("NavFlow server error:", error.message);
+    if (error.code === "EADDRINUSE") console.error(`SailMotion: le port ${PORT} est déjà utilisé. Modifiez PORT dans .env.`);
+    else console.error("SailMotion AI server error:", error.message);
     process.exitCode = 1;
   });
 }
@@ -370,7 +370,7 @@ function mockCoachAnswer(message: string, context: any) {
   let baseAnswer = "";
 
   if (query.includes("hi") || query.includes("hello") || query.includes("creator") || query.includes("mouad") || query.includes("maroc") || query.includes("morocco")) {
-    baseAnswer = `Ahlan! Welcome to **NavFlow Intelligence**, the ultimate platform for high-performance sailing analysis. 
+    baseAnswer = `Ahlan! Welcome to **SailMotion Intelligence**, the ultimate platform for high-performance sailing analysis. 
 This cloud application was fully engineered by Moroccan developer **Mouad Mouasseif**, combining computer vision models with real-time yacht dynamics.
 
 How can I help you fine-tune your performance today? I can help with:
@@ -379,25 +379,25 @@ How can I help you fine-tune your performance today? I can help with:
 - Dynamic heel stabilization and windward wave alignment
 - Generating a customized PDF-style performance coaching report`;
   } else if (query.includes("hike") || query.includes("hiking") || query.includes("posture") || query.includes("body")) {
-    baseAnswer = `**NavFlow Biomechanical Posture Alert:**
+    baseAnswer = `**SailMotion AI Biomechanical Posture Alert:**
 To maximize velocity made good (VMG) upwind on an ILCA:
 1. **Torso Lean:** Hold your back straight with torso inclined out to 45°-50° relative to deck surface. Do not curl your shoulders under strain; push your hips out.
 2. **Knee Extension:** Keep your knees locked fully during flat water, but introduce quick 5-10° flexions on wave crests to cushion the hull's pitch index.
 3. **Mainsheet coordination:** Never hold the sheet static. You must ease 2-4 inches on gust impact and drop coordinates outbound, keeping weight static.`;
   } else if (query.includes("wind") || query.includes("apparent") || query.includes("true")) {
-    baseAnswer = `**NavFlow Wind AI Estimation engine:**
+    baseAnswer = `**SailMotion AI Wind Estimation Engine:**
 From your selected video context, we are tracking apparent vs true wind indices:
 - Wave crest frequency estimates TWS around **14.2 knots**.
 - The velocity-made-course (VMC) peaks at a **38-degree apparent wind angle**.
 - Notice the dark blue gust lines on the visual radar—this indicates immediate gusts shifting starboard by 5 degrees! Anticipate this shift by easing mainsheet and increasing hiking output immediately.`;
   } else if (query.includes("speed") || query.includes("fast") || query.includes("increase")) {
-    baseAnswer = `**NavFlow Form Acceleration Guide:**
+    baseAnswer = `**SailMotion AI Form Acceleration Guide:**
 To raise your average speed above **6.8 knots**:
 - Keep your average heel below **10 degrees**. Hull heel on ILCA yachts exceeding 15° creates massive drag from rudder correction.
 - Maintain a stable boom centerline. Do not allow the boom to wander due to loose traveler settings in strong shifts.
 - Look at the tactical replay: your crew posture must remain rhythmic, active, and proactive rather than reactive.`;
   } else {
-    baseAnswer = `**NavFlow Performance Analytics:**
+    baseAnswer = `**SailMotion AI Performance Analytics:**
 Based on elite yacht racing parameters, we suggest maintaining a continuous watch on **hull heel angle** and **apparent wind boundaries**.
 - **Trim Advice:** If you are sailing upwind, trim the leech tight but responsive. 
 - **Tacking Maneuvers:** Ensure smooth tiller transition (rudder angle under 18°) to avoid braking of the hull profile.

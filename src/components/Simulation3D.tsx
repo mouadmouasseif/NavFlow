@@ -432,7 +432,7 @@ export default function Simulation3D({ session, isPlaying, currentTimePct }: Sim
         <div className="flex items-center gap-2">
           <Layers className="w-4.5 h-4.5 text-[#00F0FF]" />
           <span className="font-display font-medium text-sm text-slate-200">
-            NavFlow 3D Skeletal Replay
+            SailMotion AI 3D Skeletal Replay
           </span>
         </div>
 
@@ -458,7 +458,7 @@ export default function Simulation3D({ session, isPlaying, currentTimePct }: Sim
         <canvas 
           ref={canvasRef} 
           className="w-full h-full block cursor-crosshair"
-          title="NavFlow Interactive 3D Canvas Projection" 
+          title="SailMotion AI Interactive 3D Canvas Projection" 
         />
         
         {/* Real-time Compass Widget overlay */}

@@ -35,7 +35,7 @@ export default function CreatorBadge() {
               </span>
             </div>
             <p className="text-xs text-slate-400 mt-1 max-w-sm">
-              NavFlow AI is an elite tactical platform architected in Morocco for professional yacht racing teams and Olympic-level sailing feedback.
+              SailMotion AI is an elite tactical platform architected in Morocco for professional yacht racing teams and Olympic-level sailing feedback.
             </p>
           </div>
         </div>

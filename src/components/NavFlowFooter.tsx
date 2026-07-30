@@ -7,7 +7,7 @@ export default function NavFlowFooter() {
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 md:flex-row">
         <NavFlowBrand compact />
         <div className="text-center font-mono text-[10px] leading-relaxed text-slate-500 md:text-left">
-          <p>© 2026 NavFlow — Analyse et performance en voile.</p>
+          <p>© 2026 SailMotion AI — Analyse et performance en voile.</p>
           <p className="mt-1 text-slate-400">SAIL SMART. WIN FAST.</p>
         </div>
         <div className="flex flex-col items-center gap-2 text-center md:items-end md:text-right">

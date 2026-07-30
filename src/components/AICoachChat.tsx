@@ -18,7 +18,7 @@ export default function AICoachChat({ session }: AICoachChatProps) {
     {
       id: "welcome",
       role: "model",
-      content: `Ahlan! I am **NavFlow Intelligence**, your AI coach created by **Mouad Mouasseif**. 
+      content: `Ahlan! I am **SailMotion Intelligence**, your AI coach created by **Mouad Mouasseif**. 
 
 I am tracking your performance on the **${session.boatType}** at **${session.location}**. 
 Looking at your telemetry logs, your peak speed hit **${session.telemetry.maxSpeed}** with active hiking extension of **${session.telemetry.hikingAngle}**.
@@ -79,7 +79,7 @@ Ask me any specific tactical, aerodynamic, or biomechanical questions about your
 
       setMessages(prev => [...prev, coachMsg]);
     } catch (err) {
-      console.error("NavFlow: Chat transmission error:", err);
+      console.error("SailMotion: Chat transmission error:", err);
       // Fallback
       setMessages(prev => [...prev, {
         id: `coach-fallback-${Date.now()}`,
@@ -107,7 +107,7 @@ Ask me any specific tactical, aerodynamic, or biomechanical questions about your
       const data = await response.json();
       setActiveReport(data.text);
     } catch (err) {
-      console.error("NavFlow: Report compile failed:", err);
+      console.error("SailMotion: Report compile failed:", err);
       setActiveReport(session.aiReport || "Failed to generate report text. Please try again.");
     } finally {
       setIsGeneratingReport(false);
@@ -130,7 +130,7 @@ Ask me any specific tactical, aerodynamic, or biomechanical questions about your
               <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-red-600 rounded-full border-2 border-navy-900" />
             </div>
             <div>
-              <h4 className="font-display font-medium text-sm text-white">NavFlow Intelligence Coach</h4>
+              <h4 className="font-display font-medium text-sm text-white">SailMotion Intelligence Coach</h4>
               <p className="text-[10px] font-mono text-slate-400">Gemini 3.5 Core • Mouad Mouasseif Edition</p>
             </div>
           </div>
@@ -266,7 +266,7 @@ Ask me any specific tactical, aerodynamic, or biomechanical questions about your
                 const element = document.createElement("a");
                 const file = new Blob([activeReport], {type: 'text/plain'});
                 element.href = URL.createObjectURL(file);
-                element.download = `NavFlow_Sailing_Report_${session.athleteName.replace(/\s+/g, "_")}.txt`;
+                element.download = `SailMotion_Sailing_Report_${session.athleteName.replace(/\s+/g, "_")}.txt`;
                 document.body.appendChild(element);
                 element.click();
               }}

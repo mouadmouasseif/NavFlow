@@ -1,6 +1,6 @@
-# NavFlow
+# SailMotion AI
 
-NavFlow est un projet marocain d’analyse et de performance en voile, développé par Mouad Mouasseif.
+SailMotion AI est un projet marocain d’analyse et de performance en voile, développé par Mouad Mouasseif.
 
 ## Fonctionnalités disponibles
 
@@ -34,6 +34,6 @@ npm run build
 
 ## Confidentialité et limites
 
-L’analyse MediaPipe reste dans le navigateur. Gemini reçoit uniquement les statistiques structurées demandées par l’utilisateur. NavFlow ne peut pas déduire de façon fiable la vitesse, le vent, la VMG ou la position GPS depuis une vidéo seule. Les indicateurs de posture doivent être validés par un entraîneur.
+L’analyse MediaPipe reste dans le navigateur. Gemini reçoit uniquement les statistiques structurées demandées par l’utilisateur. SailMotion AI ne peut pas déduire de façon fiable la vitesse, le vent, la VMG ou la position GPS depuis une vidéo seule. Les indicateurs de posture doivent être validés par un entraîneur.
 
 Documentation : `docs/AI_ANALYSIS_ARCHITECTURE.md` et `docs/AI_INTEGRATION_AUDIT.md`.
